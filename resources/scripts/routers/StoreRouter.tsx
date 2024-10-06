@@ -43,6 +43,13 @@ export default () => {
                             Create Server <Icon.Server className={'ml-1'} size={18} />
                         </div>
                     </NavLink>
+                    {coupons && (
+                        <NavLink to={'/account/coupons'}>
+                            <div className={'flex items-center justify-between'}>
+                                Coupons <Icon.DollarSign className={'ml-1'} size={18} />
+                            </div>
+                        </NavLink>
+                    )}
                 </div>
             </SubNavigation>
             <TransitionRouter>
@@ -59,6 +66,11 @@ export default () => {
                     <Route path={`${match.path}/create`} exact>
                         <CreateContainer />
                     </Route>
+                    {coupons && (
+                        <Route path={'/account/coupons'} exact>
+                            <CouponContainer />
+                        </Route>
+                    )}
                     <Route path={'*'}>
                         <NotFound />
                     </Route>
