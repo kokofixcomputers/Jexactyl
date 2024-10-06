@@ -72,6 +72,16 @@ tar -xzvf panel.tar.gz
 chmod -R 755 storage/* bootstrap/cache/
 ```
 
+## Things i added/fixed
+- Make descriptions for info and errors more clear
+- Kill button
+- Power Icons
+- Added labels for required resources in server creation and resource shop
+- Added coupon label in shop
+- Added coupon button in resources shop
+- Tell people to visit store front to create servers. (I was confused when i started using this. I didn't know to go to store front)
+- MANY MORE!
+
 ## Why use Jexactyl?
 * Billing system which supports [Stripe](https://stripe.com) and [PayPal](https://paypal.com) out of the box.
 * Full customizability via a simple administrative dashboard.
