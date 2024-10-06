@@ -164,6 +164,7 @@ export default () => {
                             <p className={'mt-1 text-xs text-gray-400'}>
                                 Character limits: <code>a-z A-Z 0-9 _ - .</code> and <code>[Space]</code>.
                             </p>
+                            <p className={'mt-1 text-xs text-yellow-400'}>* Required</p>
                         </TitledGreyBox>
                         <TitledGreyBox title={'Server description'} icon={faList} className={'mt-8 sm:mt-0'}>
                             <Field name={'description'} />
@@ -178,6 +179,7 @@ export default () => {
                             <Field name={'cpu'} />
                             <p className={'mt-1 text-xs'}>Assign a limit for usable CPU.</p>
                             <p className={'mt-1 text-xs text-gray-400'}>{resources.cpu}% in account</p>
+                            <p className={'mt-1 text-xs text-yellow-400'}>* Required</p>
                         </TitledGreyBox>
                         <TitledGreyBox title={'Server RAM limit'} icon={faMemory} className={'mt-8 sm:mt-0'}>
                             <div className={'relative'}>
@@ -185,7 +187,8 @@ export default () => {
                                 <p className={'absolute text-sm top-1.5 right-2 bg-gray-700 p-2 rounded-lg'}>MB</p>
                             </div>
                             <p className={'mt-1 text-xs'}>Assign a limit for usable RAM.</p>
-                            <p className={'mt-1 text-xs text-gray-400'}>{resources.memory}MB available</p>
+                            <p className={'mt-1 text-xs text-gray-400'}>{resources.memory}MB in account</p>
+                            <p className={'mt-1 text-xs text-yellow-400'}>* Required</p>
                         </TitledGreyBox>
                         <TitledGreyBox title={'Server Storage limit'} icon={faHdd} className={'mt-8 sm:mt-0'}>
                             <div className={'relative'}>
@@ -193,10 +196,11 @@ export default () => {
                                 <p className={'absolute text-sm top-1.5 right-2 bg-gray-700 p-2 rounded-lg'}>MB</p>
                             </div>
                             <p className={'mt-1 text-xs'}>Assign a limit for usable storage.</p>
-                            <p className={'mt-1 text-xs text-gray-400'}>{resources.disk}MB available</p>
+                            <p className={'mt-1 text-xs text-gray-400'}>{resources.disk}MB in account</p>
+                            <p className={'mt-1 text-xs text-yellow-400'}>* Required</p>
                         </TitledGreyBox>
                     </StoreContainer>
-                    <h1 className={'text-5xl'}>Feature Limits</h1>
+                    <h1 className={'text-5xl'}>Optional Features</h1>
                     <h3 className={'text-2xl text-neutral-500'}>
                         Add databases, allocations and ports to your server.
                     </h3>
@@ -213,7 +217,7 @@ export default () => {
                         </TitledGreyBox>
                         <TitledGreyBox title={'Server databases'} icon={faDatabase} className={'mt-8 sm:mt-0'}>
                             <Field name={'databases'} />
-                            <p className={'mt-1 text-xs'}>Assign a number of databases to your server.</p>
+                            <p className={'mt-1 text-xs'}>Assign a number of databases to your server. (MYSQL)</p>
                             <p className={'mt-1 text-xs text-gray-400'}>{resources.databases} available</p>
                         </TitledGreyBox>
                     </StoreContainer>
@@ -235,7 +239,7 @@ export default () => {
                         </TitledGreyBox>
                         <TitledGreyBox title={'Server Nest'} icon={faCube} className={'mt-8 sm:mt-0'}>
                             <Select name={'nest'} onChange={(nest) => changeNest(nest)}>
-                                {!nest && <option>Select a nest...</option>}
+                                {!nest && <option>Select a nest or catagory...</option>}
                                 {nests.map((n) => (
                                     <option key={n.id} value={n.id}>
                                         {n.name}
@@ -246,7 +250,7 @@ export default () => {
                         </TitledGreyBox>
                         <TitledGreyBox title={'Server Egg'} icon={faEgg} className={'mt-8 sm:mt-0'}>
                             <Select name={'egg'} onChange={(e) => setEgg(parseInt(e.target.value))}>
-                                {!egg && <option>Select an egg or catagory...</option>}
+                                {!egg && <option>Select an egg...</option>}
                                 {eggs.map((e) => (
                                     <option key={e.id} value={e.id}>
                                         {e.name}
