@@ -31,6 +31,7 @@ jobs:
           REF: ${{ github.ref }}
         run: |
           BRANCH=release/${REF:10}
+          BRANCH=${BRANCH//\//_}
           git config --local user.email "github@jexactyl.com"
           git config --local user.name "Jexactyl Releases"
           git checkout -b $BRANCH
