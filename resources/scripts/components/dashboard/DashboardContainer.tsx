@@ -59,7 +59,7 @@ export default () => {
                                 {showOnlyAdmin ? 'Showing other servers' : 'Showing your servers'}
                             </h1>
                             <h3 className={'text-2xl mt-2 text-neutral-500'}>
-                                Select a server to view, update or modify.
+                                Select a server to view, update or modify. Go to storefront in the sidebar to create a new server.
                             </h3>
                         </div>
                         <Switch
@@ -97,7 +97,7 @@ export default () => {
                             </div>
                         ) : (
                             <p className={'text-gray-400 text-lg font-semibold text-center'}>
-                                Doesn&apos;t look like you have any servers here.
+                                Doesn&apos;t look like you have any servers here. Create one in storefront from the sidebar if it&apos;s open.
                             </p>
                         )
                     }
