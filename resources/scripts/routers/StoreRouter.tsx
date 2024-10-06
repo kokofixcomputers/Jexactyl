@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Icon from 'react-feather';
+import { useStoreState } from 'easy-peasy';
 import { useLocation } from 'react-router';
 import TransitionRouter from '@/TransitionRouter';
 import SidePanel from '@/components/elements/SidePanel';
@@ -12,10 +13,13 @@ import OverviewContainer from '@/components/store/OverviewContainer';
 import MobileNavigation from '@/components/elements/MobileNavigation';
 import ResourcesContainer from '@/components/store/ResourcesContainer';
 import SubNavigation from '@/components/elements/SubNavigation';
+import CouponContainer from '@/components/dashboard/CouponContainer';
+
 
 export default () => {
     const location = useLocation();
     const { width } = useWindowDimensions();
+    const coupons = useStoreState((state) => state.settings.data!.coupons);
     const match = useRouteMatch<{ id: string }>();
 
     return (
