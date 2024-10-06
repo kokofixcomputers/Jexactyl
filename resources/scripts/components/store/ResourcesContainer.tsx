@@ -84,7 +84,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.Cpu />}
                     setResource={setResource}
-                    description={'Buy CPU to improve server load times and performance.'}
+                    description={'Buy CPU to improve server load times and performance. (REQUIRED TO DEPLOY SERVER)'}
                 />
                 <PurchaseBox
                     type={'Memory'}
@@ -94,7 +94,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.PieChart />}
                     setResource={setResource}
-                    description={'Buy RAM to improve overall server performance.'}
+                    description={'Buy RAM to improve overall server performance. (REQUIRED TO DEPLOY SERVER)'}
                 />
                 <PurchaseBox
                     type={'Disk'}
@@ -104,7 +104,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.HardDrive />}
                     setResource={setResource}
-                    description={'Buy disk to store more files.'}
+                    description={'Buy disk to store more files. (REQUIRED TO DEPLOY SERVER)'}
                 />
                 <PurchaseBox
                     type={'Slots'}
@@ -113,7 +113,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.Server />}
                     setResource={setResource}
-                    description={'Buy a server slot so you can deploy a new server.'}
+                    description={'Buy a server slot so you can deploy a new server. (REQUIRED TO DEPLOY SERVER)'}
                 />
             </Container>
             <Container className={'lg:grid lg:grid-cols-4 my-10 gap-8'}>
@@ -124,7 +124,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.Share2 />}
                     setResource={setResource}
-                    description={'Buy a network port to add to a server.'}
+                    description={'Buy a network port to add to a server. (REQUIRED TO DEPLOY SERVER)'}
                 />
                 <PurchaseBox
                     type={'Backups'}
@@ -133,7 +133,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.Archive />}
                     setResource={setResource}
-                    description={'Buy a backup to keep your data secure.'}
+                    description={'Buy a backup to backup your server incase anything happens.'}
                 />
                 <PurchaseBox
                     type={'Databases'}
@@ -142,7 +142,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.Database />}
                     setResource={setResource}
-                    description={'Buy a database to get and set data.'}
+                    description={'Buy a database to get and store data. (MYSQL)'}
                 />
                 <TitledGreyBox title={'How to use resources'}>
                     <p className={'font-semibold'}>Adding to an existing server</p>
