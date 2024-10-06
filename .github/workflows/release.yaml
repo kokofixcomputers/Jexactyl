@@ -23,16 +23,16 @@ jobs:
         run: yarn build:production  # Adjust this command based on your build process
 
       - name: Create release directory
-        run: mkdir -p release
+        run: mkdir -p release/kokofixcomputers
 
       - name: Package the build into a tar file
         run: |
-          TAR_FILE="release/${{ github.repository }}-$(date +'%Y%m%d%H%M%S').tar.gz"
-          tar -czf "$TAR_FILE" -C dist .  # Adjust 'dist' to your build output directory
+          TAR_FILE="release/kokofixcomputers/panel.tar.gz"  # Set the desired filename here
+          tar -czf "$TAR_FILE" .  # The dot (.) indicates to include everything in the current directory
           echo "Release created at $TAR_FILE"
 
       - name: Upload release artifact
-        uses: actions/upload-artifact@v3  # Updated to use v3
+        uses: actions/upload-artifact@v3
         with:
           name: release-artifact
-          path: release/*.tar.gz
+          path: release/kokofixcomputers/panel.tar.gz  # Update to match the new filename
