@@ -242,11 +242,11 @@ export default () => {
                                     </option>
                                 ))}
                             </Select>
-                            <p className={'mt-1 text-xs text-gray-400'}>Select a nest to use for your server.</p>
+                            <p className={'mt-1 text-xs text-gray-400'}>Select a nest or catagory to use for your server.</p>
                         </TitledGreyBox>
                         <TitledGreyBox title={'Server Egg'} icon={faEgg} className={'mt-8 sm:mt-0'}>
                             <Select name={'egg'} onChange={(e) => setEgg(parseInt(e.target.value))}>
-                                {!egg && <option>Select an egg...</option>}
+                                {!egg && <option>Select an egg or catagory...</option>}
                                 {eggs.map((e) => (
                                     <option key={e.id} value={e.id}>
                                         {e.name}
@@ -254,7 +254,7 @@ export default () => {
                                 ))}
                             </Select>
                             <p className={'mt-1 text-xs text-gray-400'}>
-                                Choose what game you want to run on your server.
+                                Choose what software or game you want to run on your server.
                             </p>
                         </TitledGreyBox>
                     </StoreContainer>
