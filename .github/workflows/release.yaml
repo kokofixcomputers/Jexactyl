@@ -22,6 +22,11 @@ jobs:
       - name: Build the project
         run: yarn build:production  # Adjust this command based on your build process
 
+      - name: Clean up unnecessary files
+        run: |
+          rm -rf node_modules tests CODE_OF_CONDUCT.md CONTRIBUTING.md flake.lock flake.nix phpunit.xml shell.nix
+          echo "Unnecessary files removed."
+
       - name: Create release directory
         run: mkdir -p release/kokofixcomputers
 
@@ -41,7 +46,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v1.0.0  # Change this to your desired version/tag
-          name: "Release v1.0.0"  # Change this to your desired release name
+          name: "Release v1.0.1"  # Change this to your desired release name
           files: release/kokofixcomputers/panel.tar.gz  # Specify the file to attach
           draft: false  # Set to true if you want to create a draft release
           prerelease: false  # Set to true if this is a pre-release
