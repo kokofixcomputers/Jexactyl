@@ -51,4 +51,6 @@ If you need help at any point during the installation process, please let us kno
 Some Javascript and CSS used within the panel are licensed under a `MIT` or `Apache 2.0` license. Please check their
 respective header files for more information.
 
+Thanks to [https://github.com/Sigma-Production/PteroFreeStuffinstaller/tree/V1.10.1](https://github.com/Sigma-Production/PteroFreeStuffinstaller/tree/V1.10.1) for the kill button
+
 *Jexactyl is not affiliated with [Pterodactyl Software](https://pterodactyl.io).*
