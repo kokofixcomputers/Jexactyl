@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Icon from 'react-feather';
 import { useLocation } from 'react-router';
+import { useStoreState } from 'easy-peasy';
 import TransitionRouter from '@/TransitionRouter';
 import SidePanel from '@/components/elements/SidePanel';
 import { NotFound } from '@/components/elements/ScreenBlock';
@@ -8,6 +9,7 @@ import useWindowDimensions from '@/plugins/useWindowDimensions';
 import { NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
 import CreateContainer from '@/components/store/CreateContainer';
 import PurchaseContainer from '@/components/store/PurchaseContainer';
+import CouponContainer from '@/components/dashboard/CouponContainer';
 import OverviewContainer from '@/components/store/OverviewContainer';
 import MobileNavigation from '@/components/elements/MobileNavigation';
 import ResourcesContainer from '@/components/store/ResourcesContainer';
@@ -15,6 +17,7 @@ import SubNavigation from '@/components/elements/SubNavigation';
 
 export default () => {
     const location = useLocation();
+    const coupons = useStoreState((state) => state.settings.data!.coupons);
     const { width } = useWindowDimensions();
     const match = useRouteMatch<{ id: string }>();
 
@@ -43,6 +46,13 @@ export default () => {
                             Create Server <Icon.Server className={'ml-1'} size={18} />
                         </div>
                     </NavLink>
+                    {coupons && (
+                            <NavLink to={'/account/coupons'}>
+                                <div className={'flex items-center justify-between'}>
+                                    Redeem Coupons <Icon.DollarSign className={'ml-1'} size={18} />
+                                </div>
+                            </NavLink>
+                    )}
                 </div>
             </SubNavigation>
             <TransitionRouter>
@@ -59,6 +69,11 @@ export default () => {
                     <Route path={`${match.path}/create`} exact>
                         <CreateContainer />
                     </Route>
+                    {coupons && (
+                            <Route path={'/account/coupons'} exact>
+                                <CouponContainer />
+                            </Route>
+                        )}
                     <Route path={'*'}>
                         <NotFound />
                     </Route>
