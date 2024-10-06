@@ -11,12 +11,66 @@
     <strong>
         Jexactyl is a fast, advanced and customisable game management panel and billing system in one.
         Give your users the edge in terms of performance, reliability and pure functionality.
+        NOTE: THIS IS A FORK OF JEXACTYL, IMPROVING JEXACTYL. THIS IS NOT PROJECT IS NOT AFFILIATED WITH THE ORIGINAL PROJECT.
     </strong>
 </h5>
 
 ## Installation
-Head over to our [Documentation](https://docs.jexactyl.com) to get started with self-hosting this software.
-If you need help at any point during the installation process, please let us know on [Discord](https://discord.com/invite/qttGR4Z5Pk).
+### Method 1
+Install the original jexactyl first, then run these commands:
+```bash
+cd /var/www/jexactyl # If you've migrated to jexactyl, run cd /var/www/pterodactyl
+php artisan down # If it doesn't work, try running with sudo
+sudo curl -L https://github.com/kokofixcomputers/jexactyl/releases/latest/download/panel.tar.gz | sudo tar -xzv # You may remove sudo from both ends of the command. But it might not work. for me, it didn't.
+sudo chmod -R 755 storage/* bootstrap/cache # Set the permissions
+composer install --no-dev --optimize-autoloader # if it doesn't work, run with sudo.
+php artisan migrate --seed --force # if it doesn't work, run with sudo.
+```
+Then, Run **ONE** of these based on what your using:
+```bash
+# If using NGINX or Apache (not on CentOS):
+chown -R www-data:www-data *
+
+# If using NGINX on CentOS:
+chown -R nginx:nginx *
+
+# If using Apache on CentOS
+chown -R apache:apache *
+```
+
+Finally, Run
+```bash
+php artisan up # if it doesn't work, run with sudo.
+```
+### Method 2
+Install jexactyl as written in the docs:
+```bash
+apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
+
+LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
+add-apt-repository ppa:redislabs/redis -y
+
+# The command below is not needed if you are using Ubuntu 22.04 or higher.
+curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
+
+apt update
+apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+```
+The rest is continued in the official docs of jexactyl starting [here](https://docs.jexactyl.com/#/latest/panel/install/database)
+
+Make the directory:
+```bash
+mkdir -p /var/www/jexactyl
+cd /var/www/jexactyl
+```
+
+and here comes the diffrent part, downloading the files:
+```bash
+curl -Lo panel.tar.gz https://github.com/kokofixcomputers/jexactyl/releases/latest/download/panel.tar.gz
+tar -xzvf panel.tar.gz
+chmod -R 755 storage/* bootstrap/cache/
+```
 
 ## Why use Jexactyl?
 * Billing system which supports [Stripe](https://stripe.com) and [PayPal](https://paypal.com) out of the box.
