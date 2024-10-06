@@ -4,7 +4,7 @@
 ![Downloads - Total](https://img.shields.io/github/downloads/jexactyl/jexactyl/total?style=for-the-badge)
 ![Downloads - Latest](https://img.shields.io/github/downloads/jexactyl/jexactyl/latest/total?style=for-the-badge)
 ![Version](https://img.shields.io/github/v/release/jexactyl/jexactyl?style=for-the-badge)
-![Contributors](https://img.shields.io/github/contributors-anon/jexactyl/jexactyl?style=for-the-badge) 
+![Contributors](https://img.shields.io/github/contributors-anon/jexactyl/jexactyl?style=for-the-badge)
 
 <h1 align="center">Jexactyl</h1>
 <h5 align="center">
