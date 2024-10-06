@@ -35,4 +35,14 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: release-artifact
-          path: release/kokofixcomputers/panel.tar.gz  # Update to match the new filename
+          path: release/kokofixcomputers/panel.tar.gz
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.0  # Change this to your desired version/tag
+          release_name: "Release v1.0.0"  # Change this to your desired release name
+          draft: false  # Set to true if you want to create a draft release
+          prerelease: false  # Set to true if this is a pre-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
