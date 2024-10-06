@@ -166,6 +166,14 @@ export default () => {
                         </Link>
                     </div>
                 </div>
+                <div className={'bg-auto bg-center bg-storeone p-4 m-4 rounded-lg'}>
+                    <div className={'text-center bg-gray-900 bg-opacity-75 p-4'}>
+                        <h1 className={'text-4xl'}>Have a coupon?</h1>
+                        <Link to={'/account/coupons'}>
+                            <Button.Text className={'w-full mt-4'}>Redeem a coupon</Button.Text>
+                        </Link>
+                    </div>
+                </div>
             </div>
         </PageContentBlock>
     );
