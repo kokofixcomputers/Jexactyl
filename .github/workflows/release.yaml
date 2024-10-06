@@ -32,10 +32,12 @@ jobs:
         run: |
           BRANCH=release/${REF:10}
           BRANCH=${BRANCH//\//_}
+          echo "$BRANCH"
           git config --local user.email "github@jexactyl.com"
           git config --local user.name "Jexactyl Releases"
           git checkout -b $BRANCH
           git push -u origin $BRANCH
+          echo "Ref value: ${REF:10}"
           sed -i "s/    'version' => 'canary',/    'version' => '${REF:11}',/" config/app.php
           git add config/app.php
           git commit -m "New Jexactyl release inbound!"
