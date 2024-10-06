@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/elements/button/index';
+import * as Icon from 'react-feather';
 import Can from '@/components/elements/Can';
 import { ServerContext } from '@/state/server';
 import { PowerAction } from '@/components/server/console/ServerConsoleContainer';
@@ -54,12 +55,12 @@ export default ({ className }: PowerButtonProps) => {
                     disabled={status !== 'offline'}
                     onClick={onButtonClick.bind(this, 'start')}
                 >
-                    Start
+                    <Icon.Play className="mr-2" /> Start
                 </Button>
             </Can>
             <Can action={'control.restart'}>
                 <Button.Text className={'flex-1'} disabled={!status} onClick={onButtonClick.bind(this, 'restart')}>
-                    Restart
+                    <Icon.RefreshCcw className="mr-2" /> Restart
                 </Button.Text>
             </Can>
             <Can action={'control.stop'}>
@@ -68,7 +69,7 @@ export default ({ className }: PowerButtonProps) => {
                     disabled={status === 'offline'}
                     onClick={onButtonClick.bind(this, killable ? 'stop' : 'stop')}
                 >
-                    {killable ? 'Stop' : 'Stop'}
+                    <Icon.Square className="mr-2" /> {killable ? 'Stop' : 'Stop'}
                 </Button.Danger>
             </Can>
             <Can action={'control.kill'}>
@@ -77,7 +78,7 @@ export default ({ className }: PowerButtonProps) => {
                     disabled={status === 'offline'}
                     onClick={onButtonClick.bind(this, killable ? 'kill' : 'kill')}
                 >
-                    {killable ? 'Kill' : 'Kill'}
+                    <Icon.Zap className="mr-2" /> {killable ? 'Kill' : 'Kill'}
                 </Button.Danger>
             </Can>
         </div>
