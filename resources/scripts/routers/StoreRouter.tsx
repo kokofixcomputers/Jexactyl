@@ -71,7 +71,7 @@ export default () => {
                         <CreateContainer />
                     </Route>
                     {coupons && (
-                        <Route path={'${match.path}/coupons'} exact>
+                        <Route path={`${match.path}/coupons`} exact>
                             <CouponContainer />
                         </Route>
                     )}
