@@ -75,6 +75,7 @@ chmod -R 755 storage/* bootstrap/cache/
 - Make descriptions for info and errors more clear
 - Kill button
 - Power Icons
+- Server info (Unavaiable/Suspended/Installing/etc) actually shows now!
 - Added labels for required resources in server creation and resource shop
 - Added coupon label in shop
 - Added coupon button in resources shop
