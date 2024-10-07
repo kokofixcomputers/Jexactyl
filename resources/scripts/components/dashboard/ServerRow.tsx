@@ -93,37 +93,37 @@ export default ({ server, className }: { server: Server; className?: string }) =
                         {server.allocations
                             .filter((alloc) => alloc.isDefault)
                             .map((allocation) => (
-                                <React.Fragment key={allocation.ip + allocation.port.toString()}>
+                                <React.Fragment key={allocation.ip + allocation.port.toString                                }>
                                     {allocation.alias || ip(allocation.ip)}:{allocation.port}
                                 </React.Fragment>
                             ))}
                     </p>
                 </div>
                 <div css={tw`hidden col-span-7 lg:col-span-4 sm:flex items-baseline justify-center`}>
-                {!stats || isSuspended ? (
-                    isSuspended ? (
-                        <div css={tw`flex-1 text-center`}>
-                            <span css={tw`bg-red-500 rounded px-2 py-1 text-red-100 text-xs`}>
-                                {server.status === 'suspended' ? 'Suspended' : 'Connection Error'}
-                            </span>
-                        </div>
-                    ) : server.isTransferring || server.status ? (
-                        <div css={tw`flex-1 text-center`}>
-                            <span css={tw`bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs`}>
-                                {server.isTransferring
-                                    ? 'Transferring'
-                                    : server.status === 'installing'
-                                    ? 'Installing'
-                                    : server.status === 'restoring_backup'
-                                    ? 'Restoring Backup'
-                                    : 'Unavailable'}
-                            </span>
-                        </div>
-                    ) : (
-                        <Spinner size={'small'} />
-                    )
-                ) : (
-</div>
+                    {!stats || isSuspended ? (
+                        isSuspended ? (
+                            <div css={tw`flex-1 text-center`}>
+                                <span css={tw`bg-red-500 rounded px-2 py-1 text-red-100 text-xs`}>
+                                    {server.status === 'suspended' ? 'Suspended' : 'Connection Error'}
+                                </span>
+                            </div>
+                        ) : server.isTransferring || server.status ? (
+                            <div css={tw`flex-1 text-center`}>
+                                <span css={tw`bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs`}>
+                                    {server.isTransferring
+                                        ? 'Transferring'
+                                        : server.status === 'installing'
+                                        ? 'Installing'
+                                        : server.status === 'restoring_backup'
+                                        ? 'Restoring Backup'
+                                        : 'Unavailable'}
+                                </span>
+                            </div>
+                        ) : (
+                            <Spinner size={'small'} />
+                        )
+                    ) : null}
+                </div>
             </div>
             {stats && (
                 <div css={tw`hidden col-span-12 sm:flex items-baseline justify-center items-center`}>
