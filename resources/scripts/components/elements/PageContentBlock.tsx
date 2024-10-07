@@ -47,14 +47,14 @@ const PageContentBlock: React.FC<PageContentBlockProps> = ({
                     {children}
                 </ContentContainer>
                 <ContentContainer css={tw`text-sm text-center my-4 pb-8`}>
-                    <p css={tw`text-neutral-500 sm:float-left`}>
-                        &copy; <a href={'https://jexactyl.com'}>Jexactyl,</a> built on{' '}
-                        <a href={'https://pterodactyl.io'}>Pterodactyl.</a>
+                    <p css={tw`text-neutral-500 text-xs mt-6 sm:float-left`}>
+                        &copy; <a href={'https://github.com/kokofixcomputers/Jexactyl'}>Jexactyl-fork,</a> built on{' '}
+                        <a href={'https://jexactyl.com'}>Jexactyl.</a>
                     </p>
-                    <p css={tw`text-neutral-500 sm:float-right`}>
-                        <a href={'https://jexactyl.com'}> Site </a>
+                    <p css={tw`text-neutral-500 text-xs mt-6 sm:float-right`}>
+                        <a href={'https://kokodev.cc'}> Site </a>
                         &bull;
-                        <a href={'https://github.com/jexactyl/jexactyl'}> GitHub </a>
+                        <a href={'https://github.com/kokofixcomputers/Jexactyl'}> GitHub </a>
                     </p>
                 </ContentContainer>
             </div>
