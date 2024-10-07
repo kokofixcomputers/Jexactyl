@@ -52,20 +52,26 @@ const ChmodFileModal = ({ files, ...props }: OwnProps) => {
             .then(() => props.onDismissed());
     };
 
+    // Generate a title based on the files being chmoded
+    const title = `Changing Permissions for: ${files.map(f => f.file).join(', ')}`;
+
     return (
         <Formik onSubmit={submit} initialValues={{ mode: files.length > 1 ? '' : files[0].mode || '' }}>
             {({ isSubmitting }) => (
                 <Modal {...props} dismissable={!isSubmitting} showSpinnerOverlay={isSubmitting}>
-                    <Form css={tw`m-0`}>
-                        <div css={tw`flex flex-wrap items-end`}>
-                            <div css={tw`w-full sm:flex-1 sm:mr-4`}>
-                                <Field type={'string'} id={'file_mode'} name={'mode'} label={'File Mode'} autoFocus />
+                    <div css={tw`p-4`}>
+                        <h2 css={tw`text-lg font-bold mb-4`}>{title}</h2>
+                        <Form css={tw`m-0`}>
+                            <div css={tw`flex flex-wrap items-end`}>
+                                <div css={tw`w-full sm:flex-1 sm:mr-4`}>
+                                    <Field type={'string'} id={'file_mode'} name={'mode'} label={'File Mode'} autoFocus />
+                                </div>
+                                <div css={tw`w-full sm:w-auto mt-4 sm:mt-0`}>
+                                    <Button css={tw`w-full`}>Update</Button>
+                                </div>
                             </div>
-                            <div css={tw`w-full sm:w-auto mt-4 sm:mt-0`}>
-                                <Button css={tw`w-full`}>Update</Button>
-                            </div>
-                        </div>
-                    </Form>
+                        </Form>
+                    </div>
                 </Modal>
             )}
         </Formik>
