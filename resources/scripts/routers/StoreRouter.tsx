@@ -48,7 +48,7 @@ export default () => {
                         </div>
                     </NavLink>
                     {coupons && (
-                        <NavLink to={'/account/coupons'}>
+                        <NavLink to={`${match.path}/coupons`}>
                             <div className={'flex items-center justify-between'}>
                                 Coupons <Icon.DollarSign className={'ml-1'} size={18} />
                             </div>
