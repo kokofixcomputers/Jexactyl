@@ -9,8 +9,6 @@ import GreyRowBox from '@/components/elements/GreyRowBox';
 import React, { useEffect, useRef, useState } from 'react';
 import getServerResourceUsage, { ServerPowerState, ServerStats } from '@/api/server/getServerResourceUsage';
 
-// Determines if the current value is in an alarm threshold so we can show it in red rather
-// than the more faded default style.
 const isAlarmState = (current: number, limit: number): boolean => limit > 0 && current / (limit * 1024 * 1024) >= 0.9;
 
 const IconDescription = styled.p<{ $alarm?: boolean }>`
@@ -18,7 +16,7 @@ const IconDescription = styled.p<{ $alarm?: boolean }>`
     ${(props) => props.$alarm && tw`text-red-300`};
 `;
 
-const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | undefined; $bg: string }>
+const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | undefined; $bg: string }>`
     ${tw`grid grid-cols-12 gap-4 relative`};
     ${({ $bg }) => `background-image: url("${$bg}");`}
     background-position: center;
@@ -39,15 +37,16 @@ const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | unde
                 ? tw`bg-green-500`
                 : tw`bg-yellow-500`};
     }
+    
     &:hover .status-bar {
         ${tw`opacity-75`};
     }
-};
+`;
 
 type Timer = ReturnType<typeof setInterval>;
 
 export default ({ server, className }: { server: Server; className?: string }) => {
-    const interval = useRef<Timer>(null) as React.MutableRefObject<Timer>;
+    const interval = useRef<Timer>(null);
     const [isSuspended, setIsSuspended] = useState(server.status === 'suspended');
     const [stats, setStats] = useState<ServerStats | null>(null);
 
@@ -61,8 +60,6 @@ export default ({ server, className }: { server: Server; className?: string }) =
     }, [stats?.isSuspended, server.status]);
 
     useEffect(() => {
-        // Don't waste a HTTP request if there is nothing important to show to the user because
-        // the server is suspended.
         if (isSuspended) return;
 
         getStats().then(() => {
