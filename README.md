@@ -17,6 +17,11 @@
 ## Installation
 ### Method 1
 Install the original jexactyl first, then run these commands:
+If you don't want to run the commands below, run this single command:
+```bash
+sudo bash <(curl -s https://raw.githubusercontent.com/kokofixcomputers/Jexactyl/develop/update-script.sh)
+```
+What the command above runs: You can run this your self if you don't want to run the command.
 ```bash
 cd /var/www/jexactyl # If you've migrated to jexactyl, run cd /var/www/pterodactyl
 php artisan down # If it doesn't work, try running with sudo
@@ -82,6 +87,12 @@ chmod -R 755 storage/* bootstrap/cache/
 - Tell people to visit store front to create servers. (I was confused when i started using this. I didn't know to go to store front)
 - Show how much resources you have in buy resource page
 - MANY MORE!
+
+## Updating
+Run:
+```bash
+sudo bash <(curl -s https://raw.githubusercontent.com/kokofixcomputers/Jexactyl/develop/update-script.sh)
+```
 
 ## Why use Jexactyl?
 * Billing system which supports [Stripe](https://stripe.com) and [PayPal](https://paypal.com) out of the box.
