@@ -29,7 +29,11 @@ export default (props: BoxProps) => (
                 {props.suffix} {props.type}
             </Button.Success>
         </div>
-        <p className={'mt-2 text-gray-500 text-xs flex justify-center'}>{props.description}</p>
+        {/* Use dangerouslySetInnerHTML to render the description */}
+        <p
+            className={'mt-2 text-gray-500 text-xs flex justify-center'}
+            dangerouslySetInnerHTML={{ __html: props.description }}
+        />
         <p className={'mt-1 text-gray-500 text-xs flex justify-center'}>
             Cost per {props.amount}
             {props.suffix} {props.type}: {props.cost} credits
