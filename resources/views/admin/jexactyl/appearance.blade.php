@@ -38,6 +38,13 @@
                                     <p class="text-muted"><small>The logo which is used for the Panel&apos;s frontend.</small></p>
                                 </div>
                             </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Console System Name</label>
+                                <div>
+                                    <input type="text" class="form-control" name="app:consolemessagename" value="{{ $consolemessagename }}" />
+                                    <p class="text-muted"><small>The system name displayed to the user inside the console.</small></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
