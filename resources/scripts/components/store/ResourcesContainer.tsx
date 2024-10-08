@@ -1,6 +1,7 @@
 import tw from 'twin.macro';
 import { breakpoint } from '@/theme';
 import * as Icon from 'react-feather';
+import { useStoreState } from 'easy-peasy';
 import { Link } from 'react-router-dom';
 import useFlash from '@/plugins/useFlash';
 import styled from 'styled-components/macro';
@@ -14,6 +15,7 @@ import TitledGreyBox from '@/components/elements/TitledGreyBox';
 import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 import PurchaseBox from '@/components/elements/store/PurchaseBox';
 import PageContentBlock from '@/components/elements/PageContentBlock';
+
 
 const Container = styled.div`
     ${tw`flex flex-wrap`};
@@ -35,6 +37,8 @@ export default () => {
     const [open, setOpen] = useState(false);
     const [costs, setCosts] = useState<Costs>();
     const [resource, setResource] = useState('');
+    const coupons = useStoreState((state) => state.settings.data!.coupons);
+
     const { addFlash, clearFlashes, clearAndAddHttpError } = useFlash();
 
     useEffect(() => {
@@ -166,14 +170,16 @@ export default () => {
                         </Link>
                     </div>
                 </div>
-                <div className={'bg-auto bg-center bg-storeone p-4 m-4 rounded-lg'}>
-                    <div className={'text-center bg-gray-900 bg-opacity-75 p-4'}>
-                        <h1 className={'text-4xl'}>Have a coupon?</h1>
-                        <Link to={'/account/coupons'}>
-                            <Button.Text className={'w-full mt-4'}>Redeem a coupon</Button.Text>
-                        </Link>
+                {coupons && (
+                    <div className={'bg-auto bg-center bg-storetwo p-4 m-4 rounded-lg'}>
+                        <div className={'text-center bg-gray-900 bg-opacity-75 p-4'}>
+                            <h1 className={'text-4xl'}>Have a coupon?</h1>
+                            <Link to={'/account/coupons'}>
+                                <Button.Text className={'w-full mt-4'}>Redeem a coupon</Button.Text>
+                            </Link>
+                        </div>
                     </div>
-                </div>
+            )}
             </div>
         </PageContentBlock>
     );
