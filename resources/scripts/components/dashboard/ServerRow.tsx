@@ -18,17 +18,14 @@ const IconDescription = styled.p<{ $alarm?: boolean }>`
     ${(props) => props.$alarm && tw`text-red-300`};
 `;
 
-const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | undefined; $bg: string }>
+const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | undefined; $bg: string }>`
     ${tw`grid grid-cols-12 gap-4 relative`};
-
     ${({ $bg }) => `background-image: url("${$bg}");`}
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     & .status-bar {
         ${tw`w-4 h-4 bg-red-500 absolute right-0 top-0 z-20 rounded-full m-2 transition-all duration-150 animate-pulse`};
-
         ${({ $status }) =>
             !$status || $status === 'offline'
                 ? tw`bg-red-500`
@@ -36,11 +33,10 @@ const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | unde
                 ? tw`bg-green-500`
                 : tw`bg-yellow-500`};
     }
-
     &:hover .status-bar {
         ${tw`opacity-75`};
     }
-};
+`;
 
 type Timer = ReturnType<typeof setInterval>;
 
@@ -88,23 +84,27 @@ export default ({ server, className }: { server: Server; className?: string }) =
         >
             <div css={tw`hidden col-span-12 w-full sm:flex items-baseline justify-center items-center text-center`}>
                 <div>
-                    <p css={tw`text-xl font-medium break-words m                    <p css={tw`text-xl font-medium break-words m-2 text-gray-200`}>{server.name}</p>
+                    <p css={tw`text-xl font-medium break-words m-2 text-gray-200`}>{server.name}</p>
                     <p css={tw`text-sm text-neutral-400 break-words line-clamp-1 mb-2`}>
                         {server.allocations
                             .filter((alloc) => alloc.isDefault)
                             .map((allocation) => (
-                                <React.Fragment key={allocation.ip + allocation.port.toString()}>
+                                <React.Fragment key={allocation.ip + allocation.port.toString                                }>
                                     {allocation.alias || ip(allocation.ip)}:{allocation.port}
                                 </React.Fragment>
                             ))}
                     </p>
-                    <div css={tw`flex-1 text-center`}>
-                        {!stats || isSuspended ? (
-                            isSuspended ? (
+                </div>
+                <div css={tw`hidden col-span-7 lg:col-span-4 sm:flex items-baseline justify-center`}>
+                    {!stats || isSuspended ? (
+                        isSuspended ? (
+                            <div css={tw`flex-1 text-center`}>
                                 <span css={tw`bg-red-500 rounded px-2 py-1 text-red-100 text-xs`}>
                                     {server.status === 'suspended' ? 'Suspended' : 'Connection Error'}
                                 </span>
-                            ) : server.isTransferring || server.status ? (
+                            </div>
+                        ) : server.isTransferring || server.status ? (
+                            <div css={tw`flex-1 text-center`}>
                                 <span css={tw`bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs`}>
                                     {server.isTransferring
                                         ? 'Transferring'
@@ -114,11 +114,11 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                         ? 'Restoring Backup'
                                         : 'Unavailable'}
                                 </span>
-                            ) : (
-                                <Spinner size={'small'} />
-                            )
-                        ) : null}
-                    </div>
+                            </div>
+                        ) : (
+                            <Spinner size={'small'} />
+                        )
+                    ) : null}
                 </div>
             </div>
             {stats && (
