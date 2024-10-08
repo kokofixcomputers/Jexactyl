@@ -4,6 +4,7 @@ export interface SiteSettings {
     name: string;
     logo: string;
     locale: string;
+    consolemessagename: string;
 
     approvals: boolean;
     tickets: boolean;
