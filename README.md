@@ -80,6 +80,7 @@ chmod -R 755 storage/* bootstrap/cache/
 - Added coupon label in shop
 - Added coupon button in resources shop
 - Tell people to visit store front to create servers. (I was confused when i started using this. I didn't know to go to store front)
+- Show how much resources you have in buy resource page
 - MANY MORE!
 
 ## Why use Jexactyl?
