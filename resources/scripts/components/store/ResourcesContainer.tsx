@@ -91,7 +91,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.Cpu />}
                     setResource={setResource}
-                    description={'Buy CPU to improve server load times and performance. (REQUIRED TO DEPLOY SERVER)'}
+                    description={'Buy CPU to improve server load times and performance. <span className="text-yellow-400">(REQUIRED TO DEPLOY SERVER)</span>'}
                 />
                 <PurchaseBox
                     type={'Memory'}
@@ -101,7 +101,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.PieChart />}
                     setResource={setResource}
-                    description={'Buy RAM to improve overall server performance. (REQUIRED TO DEPLOY SERVER)'}
+                    description={'Buy RAM to improve overall server performance. <span className="text-yellow-400">(REQUIRED TO DEPLOY SERVER)</span>'}
                 />
                 <PurchaseBox
                     type={'Disk'}
@@ -111,7 +111,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.HardDrive />}
                     setResource={setResource}
-                    description={'Buy disk to store more files. (REQUIRED TO DEPLOY SERVER)'}
+                    description={'Buy disk to store more files. <span className="text-yellow-400">(REQUIRED TO DEPLOY SERVER)</span>'}
                 />
                 <PurchaseBox
                     type={'Slots'}
@@ -120,7 +120,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.Server />}
                     setResource={setResource}
-                    description={'Buy a server slot so you can deploy a new server. (REQUIRED TO DEPLOY SERVER)'}
+                    description={'Buy a server slot so you can deploy a new server. <span className="text-yellow-400">(REQUIRED TO DEPLOY SERVER)</span>'}
                 />
             </Container>
             <Container className={'lg:grid lg:grid-cols-4 my-10 gap-8'}>
@@ -131,7 +131,7 @@ export default () => {
                     setOpen={setOpen}
                     icon={<Icon.Share2 />}
                     setResource={setResource}
-                    description={'Buy a network port to add to a server. (REQUIRED TO DEPLOY SERVER)'}
+                    description={'Buy a network port to add to a server. <span className="text-yellow-400">(REQUIRED TO DEPLOY SERVER)</span>'}
                 />
                 <PurchaseBox
                     type={'Backups'}
