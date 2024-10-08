@@ -15,6 +15,8 @@ import TitledGreyBox from '@/components/elements/TitledGreyBox';
 import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 import PurchaseBox from '@/components/elements/store/PurchaseBox';
 import PageContentBlock from '@/components/elements/PageContentBlock';
+import ResourceBar from '@/components/elements/store/ResourceBar';
+
 
 
 const Container = styled.div`
@@ -68,6 +70,7 @@ export default () => {
             description={'Buy more resources to add to your server.'}
             showFlashKey={'store:resources'}
         >
+            <ResourceBar className={'w-full lg:w-3/4'} />
             <SpinnerOverlay size={'large'} visible={open} />
             <Dialog.Confirm
                 open={open}
