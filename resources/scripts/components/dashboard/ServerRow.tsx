@@ -18,7 +18,7 @@ const IconDescription = styled.p<{ $alarm?: boolean }>`
     ${(props) => props.$alarm && tw`text-red-300`};
 `;
 
-const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | undefined; $bg: string }>`
+const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | undefined; $bg: string }>
     ${tw`grid grid-cols-12 gap-4 relative`};
 
     ${({ $bg }) => `background-image: url("${$bg}");`}
@@ -40,7 +40,7 @@ const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | unde
     &:hover .status-bar {
         ${tw`opacity-75`};
     }
-`;
+};
 
 type Timer = ReturnType<typeof setInterval>;
 
@@ -88,7 +88,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
         >
             <div css={tw`hidden col-span-12 w-full sm:flex items-baseline justify-center items-center text-center`}>
                 <div>
-                    <p css={tw`text-xl font-medium break-words m-2 text-gray-200`}>{server.name}</p>
+                    <p css={tw`text-xl font-medium break-words m                    <p css={tw`text-xl font-medium break-words m-2 text-gray-200`}>{server.name}</p>
                     <p css={tw`text-sm text-neutral-400 break-words line-clamp-1 mb-2`}>
                         {server.allocations
                             .filter((alloc) => alloc.isDefault)
@@ -98,41 +98,28 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                 </React.Fragment>
                             ))}
                     </p>
+                    <div css={tw`flex-1 text-center`}>
+                        {!stats || isSuspended ? (
+                            isSuspended ? (
+                                <span css={tw`bg-red-500 rounded px-2 py-1 text-red-100 text-xs`}>
+                                    {server.status === 'suspended' ? 'Suspended' : 'Connection Error'}
+                                </span>
+                            ) : server.isTransferring || server.status ? (
+                                <span css={tw`bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs`}>
+                                    {server.isTransferring
+                                        ? 'Transferring'
+                                        : server.status === 'installing'
+                                        ? 'Installing'
+                                        : server.status === 'restoring_backup'
+                                        ? 'Restoring Backup'
+                                        : 'Unavailable'}
+                                </span>
+                            ) : (
+                                <Spinner size={'small'} />
+                            )
+                        ) : null}
+                    </div>
                 </div>
-<div css={tw`hidden col-span-12 w-full sm:flex items-baseline justify-center items-center text-center`}>
-    <div>
-        <p css={tw`text-xl font-medium break-words m-2 text-gray-200`}>{server.name}</p>
-        <p css={tw`text-sm text-neutral-400 break-words line-clamp-1 mb-2`}>
-            {server.allocations
-                .filter((alloc) => alloc.isDefault)
-                .map((allocation) => (
-                    <React.Fragment key={allocation.ip + allocation.port.toString()}>
-                        {allocation.alias || ip(allocation.ip)}:{allocation.port}
-                    </React.Fragment>
-                ))}
-        </p>
-        <div css={tw`flex-1 text-center`}>
-            {!stats || isSuspended ? (
-                isSuspended ? (
-                    <span css={tw`bg-red-500 rounded px-2 py-1 text-red-100 text-xs`}>
-                        {server.status === 'suspended' ? 'Suspended' : 'Connection Error'}
-                    </span>
-                ) : server.isTransferring || server.status ? (
-                    <span css={tw`bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs`}>
-                        {server.isTransferring
-                            ? 'Transferring'
-                            : server.status === 'installing'
-                            ? 'Installing'
-                            : server.status === 'restoring_backup'
-                            ? 'Restoring Backup'
-                            : 'Unavailable'}
-                    </span>
-                ) : (
-                    <Spinner size={'small'} />
-                )
-            ) : null}
-        </div>
-    </div>
             </div>
             {stats && (
                 <div css={tw`hidden col-span-12 sm:flex items-baseline justify-center items-center`}>
