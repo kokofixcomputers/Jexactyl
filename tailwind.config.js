@@ -10,6 +10,7 @@ module.exports = {
                 'storeone': "url('https://www.minecraft.net/content/dam/games/minecraft/key-art/MC-Vanilla_Block-Column-Image_Boat-Trip_800x800.jpg')",
                 'storetwo': "url('https://www.minecraft.net/content/dam/games/minecraft/key-art/MC-Vanilla_Block-Column-Image_Beach-Cabin_800x800.jpg')",
                 'storethree': "url('https://www.minecraft.net/content/dam/games/minecraft/key-art/MC-Vanilla_Block-Column-Image_Mining_800x800.jpg')",
+                'storefour': "url('https://www.minecraft.net/content/dam/games/minecraft/key-art/OV_PMP_GameModeCarousel_Art_Slide2_Mobile1.png')",
             },
             colors: {
                 black: '#000',
