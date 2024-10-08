@@ -30,6 +30,9 @@ jobs:
       - name: Create release directory
         run: mkdir -p release/kokofixcomputers
 
+      - name: Wait for previous tasks to finish
+        run: sleep 3s
+
       - name: Package the build into a tar file
         run: |
           TAR_FILE="release/kokofixcomputers/panel.tar.gz"  # Set the desired filename here
