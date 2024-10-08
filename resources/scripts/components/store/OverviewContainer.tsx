@@ -8,6 +8,7 @@ import PageContentBlock from '@/components/elements/PageContentBlock';
 export default () => {
     const { width } = useWindowDimensions();
     const username = useStoreState((state) => state.user.data!.username);
+    const coupons = useStoreState((state) => state.settings.data!.coupons);
 
     return (
         <PageContentBlock title={'Storefront Overview'}>
@@ -39,12 +40,14 @@ export default () => {
                     action={'Buy Credits'}
                     link={'credits'}
                 />
-                <StoreBanner
-                    title={'Want to redeem a coupon?'}
-                    className={'bg-storefour'}
-                    action={'Redeem Coupon'}
-                    link={'coupons'}
-                />
+                {coupons && (
+                    <StoreBanner
+                        title={'Want to redeem a coupon?'}
+                        className={'bg-storefour'}
+                        action={'Redeem Coupon'}
+                        link={'coupons'}
+                    />
+                )}
             </div>
         </PageContentBlock>
     );
