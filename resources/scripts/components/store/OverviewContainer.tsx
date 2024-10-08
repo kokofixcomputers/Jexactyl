@@ -34,10 +34,16 @@ export default () => {
                     link={'resources'}
                 />
                 <StoreBanner
-                    title={'Run out of credits?'}
+                    title={'Ran out of credits?'}
                     className={'bg-storethree'}
                     action={'Buy Credits'}
                     link={'credits'}
+                />
+                <StoreBanner
+                    title={'Want to redeem a coupon?'}
+                    className={'bg-storefour'}
+                    action={'Redeem Coupon'}
+                    link={'coupons'}
                 />
             </div>
         </PageContentBlock>
