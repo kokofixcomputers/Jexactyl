@@ -49,7 +49,7 @@ export default () => {
                 <ContentBox title={'Purchase credits'} showFlashes={'account:balance'} css={tw`mt-8 sm:mt-0 sm:ml-8`}>
                     {!paypal && !stripe ? (
                         <p className={'text-gray-400 text-sm text-center'}>
-                            Payment gateways are unavailable at this time.
+                            Payment gateways are unavailable at this time. If you think this is a mistake, please contact an admin.
                         </p>
                     ) : (
                         <>
