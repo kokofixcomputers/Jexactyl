@@ -18,12 +18,18 @@ const IconDescription = styled.p<{ $alarm?: boolean }>`
     ${(props) => props.$alarm && tw`text-red-300`};
 `;
 
-const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | undefined; $bg: string }>`
+const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | undefined; $bg: string }>
     ${tw`grid grid-cols-12 gap-4 relative`};
     ${({ $bg }) => `background-image: url("${$bg}");`}
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    // Adjusting for mobile
+    @media (max-width: 640px) {
+        ${tw`grid-cols-1`}; // Stack items in a single column on small screens
+    }
+
     & .status-bar {
         ${tw`w-4 h-4 bg-red-500 absolute right-0 top-0 z-20 rounded-full m-2 transition-all duration-150 animate-pulse`};
         ${({ $status }) =>
@@ -36,7 +42,7 @@ const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | unde
     &:hover .status-bar {
         ${tw`opacity-75`};
     }
-`;
+};
 
 type Timer = ReturnType<typeof setInterval>;
 
@@ -82,20 +88,24 @@ export default ({ server, className }: { server: Server; className?: string }) =
             $status={stats?.status}
             $bg={server.bg}
         >
-            <div css={tw`hidden col-span-12 w-full sm:flex items-baseline justify-center items-center text-center`}>
+            <div css={tw`flex flex-col col-span-12 items-center justify-center text-center`}>
                 <div>
-                    <p css={tw`text-xl font-medium break-words m-2 text-gray-200`}>{server.name}</p>
+                    <p css={tw`text-xl font-medium break-words m-2 text-gray-200`}>
+                        {server.name || "No Server Name"}
+                    </p>
                     <p css={tw`text-sm text-neutral-400 break-words line-clamp-1 mb-2`}>
-                        {server.allocations
-                            .filter((alloc) => alloc.isDefault)
-                            .map((allocation) => (
-                                <React.Fragment key={allocation.ip + allocation.port.toString                                }>
-                                    {allocation.alias || ip(allocation.ip)}:{allocation.port}
-                                </React.Fragment>
-                            ))}
+                        {server.allocations.length > 0 
+                            ? server.allocations
+                                .filter((alloc) => alloc.isDefault)
+                                .map((allocation) => (
+                                    <React.Fragment key={allocation.ip + allocation.port.toString()}>
+                                        {allocation.alias || ip(allocation.ip)}:{allocation.port}
+                                    </React.Fragment>
+                                ))
+                            : "No Allocations"}
                     </p>
                 </div>
-                <div css={tw`hidden col-span-7 lg:col-span-4 sm:flex items-baseline justify-center`}>
+                <div css={tw`flex flex-col col-span-full sm:flex-row items-baseline justify-center`}>
                     {!stats || isSuspended ? (
                         isSuspended ? (
                             <div css={tw`flex-1 text-center`}>
@@ -122,9 +132,9 @@ export default ({ server, className }: { server: Server; className?: string }) =
                 </div>
             </div>
             {stats && (
-                <div css={tw`hidden col-span-12 sm:flex items-baseline justify-center items-center`}>
+                <div css={tw`flex items-baseline justify-center col-span-full`}>
                     <React.Fragment>
-                        <div css={tw`flex-1 sm:block hidden`}>
+                        <div css={tw`flex flex-col items-center sm:block hidden`}>
                             <div css={tw`flex justify-center text-neutral-500`}>
                                 <Icon.Cpu size={20} />
                                 <IconDescription $alarm={alarms.cpu}>
@@ -132,7 +142,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                 </IconDescription>
                             </div>
                         </div>
-                        <div css={tw`flex-1 sm:block hidden`}>
+                        <div css={tw`flex flex-col items-center sm:block hidden`}>
                             <div css={tw`flex justify-center text-gray-500`}>
                                 <Icon.PieChart size={20} />
                                 <IconDescription $alarm={alarms.memory}>
@@ -140,7 +150,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                 </IconDescription>
                             </div>
                         </div>
-                        <div css={tw`flex-1 sm:block hidden`}>
+                        <div css={tw`flex flex-col items-center sm:block hidden`}>
                             <div css={tw`flex justify-center text-gray-500`}>
                                 <Icon.HardDrive size={20} />
                                 <IconDescription>{bytesToString(stats?.diskUsageInBytes)}</IconDescription>
