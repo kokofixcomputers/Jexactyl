@@ -18,6 +18,8 @@ import { usePersistedState } from '@/plugins/usePersistedState';
 import { SocketEvent, SocketRequest } from '@/components/server/events';
 import 'xterm/css/xterm.css';
 import Tooltip from '@/components/elements/tooltip/Tooltip';
+import { useStoreState } from 'easy-peasy';
+
 
 const theme = {
     background: th`colors.black`.toString(),
