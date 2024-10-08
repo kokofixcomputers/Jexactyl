@@ -54,12 +54,12 @@ const terminalProps: ITerminalOptions = {
 };
 
 export default () => {
-    const TERMINAL_PRELUDE = `\u001b[1m\u001b[33m${settingsData.consolemessagename}: \u001b[0m`;
     const ref = useRef<HTMLDivElement>(null);
     const terminal = useMemo(() => new Terminal({ ...terminalProps }), []);
     const fitAddon = new FitAddon();
     const searchAddon = new SearchAddon();
     const webLinksAddon = new WebLinksAddon();
+    const settingsData = useStoreState((state) => state.settings.data);
     const searchBar = new SearchBarAddon({ searchAddon });
     const [historyIndex, setHistoryIndex] = useState(-1);
     const isConsoleDetached = location.pathname.endsWith('/console');
@@ -68,7 +68,7 @@ export default () => {
     const { connected, instance } = ServerContext.useStoreState((state) => state.socket);
     const isTransferring = ServerContext.useStoreState((state) => state.server.data!.isTransferring);
     const [history, setHistory] = usePersistedState<string[]>(`${serverId}:command_history`, []);
-    const settingsData = useStoreState((state) => state.settings.data);
+    const TERMINAL_PRELUDE = `\u001b[1m\u001b[33m${settingsData.consolemessagename}: \u001b[0m`;
 
     const zIndex = `
     .xterm-search-bar__addon {
