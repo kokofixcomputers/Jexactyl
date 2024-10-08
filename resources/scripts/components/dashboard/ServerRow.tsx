@@ -46,7 +46,7 @@ const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | unde
 type Timer = ReturnType<typeof setInterval>;
 
 export default ({ server, className }: { server: Server; className?: string }) => {
-    const interval = useRef<Timer>(null) as React.MutableRefObject<Timer>;
+    const interval = useRef<Timer | null>(null) as React.MutableRefObject<Timer | null>;
     const [isSuspended, setIsSuspended] = useState(server.status === 'suspended');
     const [stats, setStats] = useState<ServerStats | null>(null);
 
@@ -67,7 +67,9 @@ export default ({ server, className }: { server: Server; className?: string }) =
         });
 
         return () => {
-            interval.current && clearInterval(interval.current);
+            if (interval.current) {
+                clearInterval(interval.current);
+            }
         };
     }, [isSuspended]);
 
@@ -105,13 +107,13 @@ export default ({ server, className }: { server: Server; className?: string }) =
                 <div css={tw`flex flex-col col-span-full sm:flex-row items-baseline justify-center`}>
                     {!stats || isSuspended ? (
                         isSuspended ? (
-                            <div css={tw`flex-1 text-center`}>
+                            <div css={tw`flex justify-center flex-col items-center`}>
                                 <span css={tw`bg-red-500 rounded px-2 py-1 text-red-100 text-xs`}>
                                     {server.status === 'suspended' ? 'Suspended' : 'Connection Error'}
                                 </span>
                             </div>
                         ) : server.isTransferring || server.status ? (
-                            <div css={tw`flex-1 text-center`}>
+                            <div css={tw`flex justify-center flex-col items-center`}>
                                 <span css={tw`bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs`}>
                                     {server.isTransferring
                                         ? 'Transferring'
@@ -129,9 +131,9 @@ export default ({ server, className }: { server: Server; className?: string }) =
                 </div>
             </div>
             {stats && (
-                <div css={tw`flex items-baseline justify-center col-span-full`}>
+                <div css={tw`flex items-baseline justify-between col-span-full sm:flex-row sm:justify-around`}>
                     <React.Fragment>
-                        <div css={tw`flex flex-col items-center sm:block hidden`}>
+                        <div css={tw`flex flex-col items-center sm:block`}>
                             <div css={tw`flex justify-center text-neutral-500`}>
                                 <Icon.Cpu size={20} />
                                 <IconDescription $alarm={alarms.cpu}>
@@ -139,7 +141,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                 </IconDescription>
                             </div>
                         </div>
-                        <div css={tw`flex flex-col items-center sm:block hidden`}>
+                        <div css={tw`flex flex-col items-center sm:block`}>
                             <div css={tw`flex justify-center text-gray-500`}>
                                 <Icon.PieChart size={20} />
                                 <IconDescription $alarm={alarms.memory}>
@@ -147,7 +149,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                 </IconDescription>
                             </div>
                         </div>
-                        <div css={tw`flex flex-col items-center sm:block hidden`}>
+                        <div css={tw`flex flex-col items-center sm:block`}>
                             <div css={tw`flex justify-center text-gray-500`}>
                                 <Icon.HardDrive size={20} />
                                 <IconDescription>{bytesToString(stats?.diskUsageInBytes)}</IconDescription>
