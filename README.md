@@ -115,13 +115,20 @@ sudo bash <(curl -s https://raw.githubusercontent.com/kokofixcomputers/Jexactyl/
 | [**ZipCloud**](https://discord.gg/f4rbEmYAXb) | Game & VPS hosting with full DDoS protection and great uptime. | [Discord](https://discord.gg/f4rbEmYAXb) |
 
 ## Previews
-![image](https://user-images.githubusercontent.com/72230943/201116518-af5e3291-74f7-433a-b035-6d80e8c7e8f8.png)
-![image](https://user-images.githubusercontent.com/72230943/201116580-ae864e7c-aac7-4766-ab9c-c6cb97d0b015.png)
-![image](https://user-images.githubusercontent.com/72230943/201116688-b53d721e-c30f-424e-8a53-025f313ec98f.png)
-![image](https://user-images.githubusercontent.com/72230943/201116840-92c00c15-5717-4121-83cd-69397f9bacba.png)
-![image](https://user-images.githubusercontent.com/72230943/201116914-8b1c8867-c462-4b25-ae47-803b2e4ea39c.png)
-![image](https://user-images.githubusercontent.com/72230943/201116959-a626e6fc-18a9-4c06-869e-2f13b37b8457.png)
+### Desktop
+<img width="2240" alt="Screenshot 2024-10-08 at 5 17 33 PM" src="https://github.com/user-attachments/assets/29c578bb-8f6f-4f46-aa20-51c60eb2f1ba">
+<img width="2240" alt="Screenshot 2024-10-08 at 5 18 39 PM" src="https://github.com/user-attachments/assets/b5804a5d-0a15-4241-88ce-53b5e4889c6c">
+
 ![image](https://user-images.githubusercontent.com/72230943/201117028-3db8aa2e-b14b-4679-9f2c-c5afb208767c.png)
+<img width="2240" alt="Screenshot 2024-10-08 at 5 11 26 PM" src="https://github.com/user-attachments/assets/a503906a-dd1b-4ed6-b268-a848f30c8204">
+<img width="2240" alt="Screenshot 2024-10-08 at 5 12 53 PM" src="https://github.com/user-attachments/assets/1aea7517-da76-4a57-aded-e6acf66105a8">
+<img width="2240" alt="Screenshot 2024-10-08 at 5 14 36 PM" src="https://github.com/user-attachments/assets/0ac8762a-7da6-4d03-a2c7-fedff2c9b131">
+### Mobile
+<img width="414" alt="Screenshot 2024-10-08 at 5 20 30 PM" src="https://github.com/user-attachments/assets/56c4c974-337c-4da9-a78e-25b5a8364d5b">
+<img width="414" alt="Screenshot 2024-10-08 at 5 21 21 PM" src="https://github.com/user-attachments/assets/902a95c7-4af2-483b-9b96-de851f3b9d11">
+<img width="414" alt="Screenshot 2024-10-08 at 5 22 00 PM" src="https://github.com/user-attachments/assets/1c74d8f4-0980-4706-8c24-1c9fbade8bf7">
+
+
 
 
 ## Licensing
