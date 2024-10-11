@@ -33,35 +33,27 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
     const onSubmit = (values: Values, { setSubmitting }: FormikHelpers<Values>) => {
         clearFlashes();
 
-        // If there is no token in the state yet, request the token and then abort this submit request
-        // since it will be re-submitted when the recaptcha data is returned by the component.
         if (recaptchaEnabled && !token) {
             ref.current!.execute().catch((error) => {
                 console.error(error);
-
                 setSubmitting(false);
                 clearAndAddHttpError({ error });
             });
-
             return;
         }
 
         login({ ...values, recaptchaData: token })
             .then((response) => {
                 if (response.complete) {
-                    // @ts-expect-error this is valid
                     window.location = response.intended || '/';
                     return;
                 }
-
                 history.replace('/auth/login/checkpoint', { token: response.confirmationToken });
             })
             .catch((error) => {
                 console.error(error);
-
                 setToken('');
                 if (ref.current) ref.current.reset();
-
                 setSubmitting(false);
                 clearAndAddHttpError({ error });
             });
@@ -113,19 +105,17 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                     {(email || discord) && (
                         <div css={tw`mt-6 text-center`}>
                             {email && (
-                                <Link
-                                    to={'/auth/register'}
-                                    css={tw`text-xs text-neutral-500 tracking-wide no-underline uppercase hover:text-neutral-600`}
-                                >
-                                    Signup with Email
+                                <Link to={'/auth/register'}>
+                                    <Button css={tw`bg-green-500 text-white w-full mt-2 hover:bg-green-600`} size={Button.Sizes.Large}>
+                                        Signup with Email
+                                    </Button>
                                 </Link>
                             )}
                             {discord && (
-                                <Link
-                                    to={'/auth/discord'}
-                                    css={tw`text-xs ml-6 text-neutral-500 tracking-wide no-underline uppercase hover:text-neutral-600`}
-                                >
-                                    Authenticate with Discord
+                                <Link to={'/auth/discord'}>
+                                    <Button css={tw`bg-blue-500 text-white w-full mt-2 hover:bg-blue-600`} size={Button.Sizes.Large}>
+                                        Authenticate with Discord
+                                    </Button>
                                 </Link>
                             )}
                         </div>
