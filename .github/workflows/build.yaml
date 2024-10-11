@@ -5,10 +5,17 @@ on:
     branches:
       - "develop"
       - "1.0-develop"
+    paths-ignore:
+      - VERSION
+      - config/app.php
+      - .github/workflows/release.yaml
   pull_request:
     branches:
       - "develop"
-      - "1.0-develop"
+    paths-ignore:
+      - VERSION
+      - config/app.php
+      - .github/workflows/release.yaml
 
 jobs:
   ui:
