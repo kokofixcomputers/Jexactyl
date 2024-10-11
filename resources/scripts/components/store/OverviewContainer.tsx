@@ -10,6 +10,9 @@ export default () => {
     const username = useStoreState((state) => state.user.data!.username);
     const coupons = useStoreState((state) => state.settings.data!.coupons);
 
+    // Determine the grid class based on the presence of coupons
+    const gridClass = coupons ? 'lg:grid lg:grid-cols-4' : 'lg:grid lg:grid-cols-3';
+
     return (
         <PageContentBlock title={'Storefront Overview'}>
             <div className={'flex flex-row items-center justify-between mt-10'}>
@@ -21,7 +24,7 @@ export default () => {
                 )}
                 <ResourceBar className={'w-full lg:w-3/4'} />
             </div>
-            <div className={'lg:grid lg:grid-cols-4 gap-8 my-10'}>
+            <div className={`${gridClass} gap-8 my-10`}>
                 <StoreBanner
                     title={'Want to create a server?'}
                     className={'bg-storeone'}
