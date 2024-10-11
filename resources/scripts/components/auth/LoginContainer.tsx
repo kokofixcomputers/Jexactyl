@@ -45,7 +45,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
         login({ ...values, recaptchaData: token })
             .then((response) => {
                 if (response.complete) {
-                    window.location = response.intended || '/';
+                    window.location.href = typeof response.intended === 'string' ? response.intended : '/';
                     return;
                 }
                 history.replace('/auth/login/checkpoint', { token: response.confirmationToken });
