@@ -22,16 +22,16 @@ jobs:
       - name: Build the project
         run: yarn build:production  # Adjust this command based on your build process
 
-      - name: Clean up unnecessary files
-        run: |
-          rm -rf node_modules tests CODE_OF_CONDUCT.md CONTRIBUTING.md flake.lock flake.nix phpunit.xml shell.nix
-          echo "Unnecessary files removed."
-
       - name: Create lock file
         run: yarn install --frozen-lockfile  # Creates or updates the lock file
 
       - name: Create release directory
         run: mkdir -p release/kokofixcomputers
+
+      - name: Clean up unnecessary files
+        run: |
+          rm -rf node_modules tests CODE_OF_CONDUCT.md CONTRIBUTING.md flake.lock flake.nix phpunit.xml shell.nix
+          echo "Unnecessary files removed."
 
       - name: Wait for previous tasks to finish
         run: sleep 3s
