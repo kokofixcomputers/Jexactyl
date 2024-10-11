@@ -39,13 +39,13 @@ jobs:
       - name: Prepare files for packaging
         run: |
           mkdir -p /tmp/package
-          cp -r ./release/kokofixcomputers/* /tmp/package/
+          cp -r ./* /tmp/package/  # Copy all files from current directory to temp package directory
           echo "Files prepared for packaging."
 
       - name: Package the build into a tar file
         run: |
           TAR_FILE="release/kokofixcomputers/panel.tar.gz"  # Set the desired filename here
-          tar -czf "$TAR_FILE" -C /tmp/package .  # Create tar from temp directory
+          tar -czf "$TAR_FILE" -C /tmp/package .  # Create tar from temp package directory
           echo "Release created at $TAR_FILE"
 
       - name: Upload release artifact
