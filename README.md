@@ -9,8 +9,7 @@
 <h5 align="center">
     <strong>
         Jexactyl is a fast, advanced and customisable game management panel and billing system in one.
-        Give your users the edge in terms of performance, reliability and pure functionality.
-        NOTE: THIS IS A FORK OF JEXACTYL, IMPROVING JEXACTYL. THIS IS NOT PROJECT IS NOT AFFILIATED WITH THE ORIGINAL PROJECT.
+        Give your users the edge in terms of performance, reliability and pure functionality. 
     </strong>
 </h5>
 
