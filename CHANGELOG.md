@@ -1,3 +1,23 @@
+### Version 1.3.1
+- test (by kokodev)
+- Update README.md (by kokodev)
+- Update update-script.sh (by kokodev)
+- Update README.md (by kokodev)
+- Update README.md (by kokodev)
+- Update OverviewContainer.tsx (by kokodev)
+- Update CHANGELOG.md (by kokofixcomputers-s-bot[bot])
+- Update VERSION (by kokofixcomputers-s-bot[bot])
+- fix so the bot doesn't mess up because the bot failed..... (by kokodev)
+- Update CHANGELOG.md (by kokofixcomputers-s-bot[bot])
+- Update VERSION (by kokofixcomputers-s-bot[bot])
+- Update config/app.php (by kokofixcomputers-s-bot[bot])
+- Update VERSION (by kokodev)
+- Update CHANGELOG.md (by kokofixcomputers-s-bot[bot])
+- Update VERSION (by kokofixcomputers-s-bot[bot])
+- Update config/app.php (by kokofixcomputers-s-bot[bot])
+- Update .github/workflows/release.yaml (by kokofixcomputers-s-bot[bot])
+- Update VERSION (by kokodev)
+
 ### Version v1.3.0
 - test (by kokodev)
 - Update README.md (by kokodev)
