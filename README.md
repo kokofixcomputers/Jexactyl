@@ -149,3 +149,5 @@ respective header files for more information.
 Thanks to [https://github.com/Sigma-Production/PteroFreeStuffinstaller/tree/V1.10.1](https://github.com/Sigma-Production/PteroFreeStuffinstaller/tree/V1.10.1) for the kill button
 
 *Jexactyl-fork is not affiliated with [Pterodactyl Software](https://pterodactyl.io) nor is affiliated with [Jexactyl](https://jexactyl.com).*
+
+![Alt](https://repobeats.axiom.co/api/embed/6d7402a3a299cdbdfa21bc4341babee50f679393.svg "Repobeats analytics image")
