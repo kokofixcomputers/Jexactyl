@@ -5,10 +5,10 @@
 ![Version](https://img.shields.io/github/v/release/kokofixcomputers/jexactyl?style=for-the-badge)
 ![Contributors](https://img.shields.io/github/contributors-anon/kokofixcomputers/jexactyl?style=for-the-badge)
 
-<h1 align="center">Jexactyl</h1>
+<h1 align="center">Jexactyl-fork</h1>
 <h5 align="center">
     <strong>
-        Jexactyl is a fast, advanced and customisable game management panel and billing system in one.
+        Jexactyl-fork is a fast, advanced and customisable game management panel and billing system in one.
         Give your users the edge in terms of performance, reliability and pure functionality. 
     </strong>
 </h5>
@@ -94,7 +94,7 @@ Run:
 sudo bash <(curl -s https://raw.githubusercontent.com/kokofixcomputers/Jexactyl/develop/update-script.sh)
 ```
 
-## Why use Jexactyl?
+## Why use Jexactyl-fork?
 * Billing system which supports [Stripe](https://stripe.com) and [PayPal](https://paypal.com) out of the box.
 * Full customizability via a simple administrative dashboard.
 * Ticket system in order to provide support to customers.
@@ -102,8 +102,6 @@ sudo bash <(curl -s https://raw.githubusercontent.com/kokofixcomputers/Jexactyl/
 * A fluent UI/UX with an easy-to-use API for both admins and clients.
 * User approvals, server renewals, and much much more.
 
-## Sponsors
-*Want to sponsor Jexactyl? [Donate Here.](https://donate.stripe.com/6oE02Zftd9cC34IbIS)*
 
 | Company | About | Link |
 | ------- | ----- | ------- |
@@ -136,4 +134,4 @@ respective header files for more information.
 
 Thanks to [https://github.com/Sigma-Production/PteroFreeStuffinstaller/tree/V1.10.1](https://github.com/Sigma-Production/PteroFreeStuffinstaller/tree/V1.10.1) for the kill button
 
-*Jexactyl is not affiliated with [Pterodactyl Software](https://pterodactyl.io).*
+*Jexactyl-fork is not affiliated with [Pterodactyl Software](https://pterodactyl.io) nor is affiliated with [Jexactyl](https://jexactyl.com).*
