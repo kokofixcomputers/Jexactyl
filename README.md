@@ -74,6 +74,20 @@ curl -Lo panel.tar.gz https://github.com/kokofixcomputers/jexactyl/releases/late
 tar -xzvf panel.tar.gz
 chmod -R 755 storage/* bootstrap/cache/
 ```
+### Method 3
+Use my installation script:
+```bash
+bash <(curl -s https://raw.githubusercontent.com/kokofixcomputers/jexactyl-fork-installer/refs/heads/master/install.sh)
+```
+This must be run as root. Not with sudo, but as root with sudo su and then running it.
+If you don't want to do that (i don't so i will follow below)
+You may run:
+```bash
+wget https://raw.githubusercontent.com/kokofixcomputers/jexactyl-fork-installer/refs/heads/master/install.sh
+sudo chmod +x install.sh
+sudo ./install.sh
+```
+Then answer the questions.
 
 ## Things i added/fixed
 - Make descriptions for info and errors more clear
