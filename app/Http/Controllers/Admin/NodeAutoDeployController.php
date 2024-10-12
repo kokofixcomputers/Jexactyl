@@ -32,7 +32,7 @@ class NodeAutoDeployController extends Controller
     public function __invoke(Request $request, Node $node): JsonResponse
     {
         /** @var \Jexactyl\Models\ApiKey|null $key */
-        $key = $this->repository->getApplicationKeys($request->user())
+        $key = $this->repository->getApplicationKeys()
             ->filter(function (ApiKey $key) {
                 foreach ($key->getAttributes() as $permission => $value) {
                     if ($permission === 'r_nodes' && $value === 1) {
