@@ -5,10 +5,21 @@ on:
     branches:
       - 'develop'
       - '1.0-develop'
+    paths-ignore:
+      - VERSION
+      - config/app.php
+      - .github/workflows/release.yaml
+      - CHANGELOG.md
   pull_request:
     branches:
       - "develop"
       - "1.0-develop"
+    paths-ignore:
+      - VERSION
+      - config/app.php
+      - .github/workflows/release.yaml
+      - CHANGELOG.md
+    
 
 jobs:
   tests:
