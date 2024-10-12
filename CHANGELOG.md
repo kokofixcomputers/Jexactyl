@@ -5,4 +5,7 @@
 - Update README.md (by kokodev)
 - Update README.md (by kokodev)
 - Update OverviewContainer.tsx (by kokodev)
+- Update CHANGELOG.md (by kokofixcomputers-s-bot[bot])
+- Update VERSION (by kokofixcomputers-s-bot[bot])
+- fix so the bot doesn't mess up because the bot failed..... (by kokodev)
 
