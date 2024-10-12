@@ -57,8 +57,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v1.3.0  # Change this to your desired version/tag
-          name: "Release v1.3.0"  # Change this to your desired release name
+          tag_name: v1.3.2  # Change this to your desired version/tag
+          name: "Release v1.3.2"  # Change this to your desired release name
           files: release/kokofixcomputers/panel.tar.gz  # Specify the file to attach
           draft: false  # Set to true if you want to create a draft release
           prerelease: false  # Set to true if this is a pre-release
