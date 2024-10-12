@@ -9,6 +9,7 @@ on:
       - VERSION
       - config/app.php
       - .github/workflows/release.yaml
+      - CHANGELOG.md
   pull_request:
     branches:
       - "develop"
@@ -16,6 +17,7 @@ on:
       - VERSION
       - config/app.php
       - .github/workflows/release.yaml
+      - CHANGELOG.md
 
 jobs:
   ui:
