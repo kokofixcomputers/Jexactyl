@@ -53,5 +53,6 @@ fi
 
 echo "Finishing up..."
 sudo php artisan up
+sudo chmod +x update-script.sh
 
 echo "Update completed successfully."
