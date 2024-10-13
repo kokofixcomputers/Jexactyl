@@ -1,3 +1,6 @@
+### Version 1.3.3
+- Update VERSION (by kokodev)
+
 ### Version 1.3.1
 - test (by kokodev)
 - Update README.md (by kokodev)
