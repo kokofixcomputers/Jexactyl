@@ -1,5 +1,10 @@
 ### Version 1.3.3
 - Update VERSION (by kokodev)
+- fix build and release (by kokodev)
+- Update VERSION (by kokodev)
+
+### Version 1.3.3
+- Update VERSION (by kokodev)
 
 ### Version 1.3.1
 - test (by kokodev)
