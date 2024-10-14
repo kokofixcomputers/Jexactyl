@@ -11,6 +11,7 @@ import { Button } from '@/components/elements/button/index';
 import TitledGreyBox from '@/components/elements/TitledGreyBox';
 import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 import ServerContentBlock from '@/components/elements/ServerContentBlock';
+import ResourceBar from '@/components/elements/store/ResourceBar';
 
 const Container = styled.div`
     ${tw`flex flex-wrap`};
@@ -72,6 +73,7 @@ export default () => {
                 This will move resources between your account and the server. Are you sure you want to continue?
             </Dialog.Confirm>
             <Container css={tw`lg:grid lg:grid-cols-3 gap-4 my-10`}>
+                <ResourceBar className={'w-full lg:w-3/4'} />
                 <TitledGreyBox title={'Edit server CPU limit'} css={tw`mt-8 sm:mt-0`}>
                     <Wrapper>
                         <Icon.Cpu size={40} />
