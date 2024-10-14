@@ -131,9 +131,10 @@ export default ({ server, className }: { server: Server; className?: string }) =
                 </div>
             </div>
             {stats && (
-                <div css={tw`flex items-baseline justify-between col-span-full sm:flex-row sm:justify-around`}>
+                <div css={tw`flex flex-col items-baseline justify-between col-span-full sm:flex-row sm:justify-around`}>
                     <React.Fragment>
-                        <div css={tw`flex flex-col items-center sm:block`}>
+                        {/* CPU Indicator */}
+                        <div css={tw`flex flex-col items-center w-full sm:w-auto`}>
                             <div css={tw`flex justify-center text-neutral-500`}>
                                 <Icon.Cpu size={20} />
                                 <IconDescription $alarm={alarms.cpu}>
@@ -141,7 +142,9 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                 </IconDescription>
                             </div>
                         </div>
-                        <div css={tw`flex flex-col items-center sm:block`}>
+
+                        {/* Memory Indicator */}
+                        <div css={tw`flex flex-col items-center w-full sm:w-auto`}>
                             <div css={tw`flex justify-center text-gray-500`}>
                                 <Icon.PieChart size={20} />
                                 <IconDescription $alarm={alarms.memory}>
@@ -149,7 +152,9 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                 </IconDescription>
                             </div>
                         </div>
-                        <div css={tw`flex flex-col items-center sm:block`}>
+
+                        {/* Disk Indicator */}
+                        <div css={tw`flex flex-col items-center w-full sm:w-auto`}>
                             <div css={tw`flex justify-center text-gray-500`}>
                                 <Icon.HardDrive size={20} />
                                 <IconDescription>{bytesToString(stats?.diskUsageInBytes)}</IconDescription>
