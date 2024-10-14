@@ -131,7 +131,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                 </div>
             </div>
             {stats && (
-                <div css={tw`flex flex-col sm:flex-row items-center justify-center col-span-full`}>
+                <div css={tw`flex flex-col sm:flex-row items-center justify-between col-span-full`}>
                     {/* CPU Indicator */}
                     <div css={tw`flex flex-col items-center w-full sm:w-auto mb-4 sm:mb-0`}>
                         <div css={tw`flex justify-center text-neutral-500`}>
