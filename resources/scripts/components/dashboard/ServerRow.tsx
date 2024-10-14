@@ -131,7 +131,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                 </div>
             </div>
             {stats && (
-                <div css={tw`flex flex-col items-baseline justify-between col-span-full sm:flex-row sm:justify-around`}>
+                <div css={tw`flex flex-col items-center justify-center col-span-full sm:flex-row sm:justify-around`}>
                     <React.Fragment>
                         {/* CPU Indicator */}
                         <div css={tw`flex flex-col items-center w-full sm:w-auto`}>
