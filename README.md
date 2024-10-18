@@ -13,6 +13,9 @@
     </strong>
 </h5>
 
+## Note:
+If you like my work, please consider sponsoring me. It will help a lot!
+
 ## Installation
 ### Method 1
 Install the original jexactyl first, then run these commands:
