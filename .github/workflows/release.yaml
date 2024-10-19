@@ -39,7 +39,8 @@ jobs:
       - name: Prepare files for packaging
         run: |
           mkdir -p /tmp/package
-          cp -r ./* /tmp/package/  # Copy all files from current directory to temp package directory
+          cp -r ./* /tmp/package/  # Ensure .env.example is present in the current directory
+          cp -r ./.env.example /tmp/package/  # Explicitly copy .env.example if needed
           echo "Files prepared for packaging."
 
       - name: Package the build into a tar file
