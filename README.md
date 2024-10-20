@@ -16,81 +16,11 @@
 ## Note:
 If you like my work, please consider sponsoring me. It will help a lot!
 
+## Official Documentation.
+[official jexactyl-fork docs](https://jexactyl-fork.kokodev.cc/)
+
 ## Installation
-### Method 1
-Install the original jexactyl first, then run these commands:
-If you don't want to run the commands below, run this single command:
-```bash
-sudo bash <(curl -s https://raw.githubusercontent.com/kokofixcomputers/Jexactyl/develop/update-script.sh)
-```
-What the command above runs: You can run this your self if you don't want to run the command.
-```bash
-cd /var/www/jexactyl # If you've migrated to jexactyl, run cd /var/www/pterodactyl
-php artisan down # If it doesn't work, try running with sudo
-sudo curl -L https://github.com/kokofixcomputers/jexactyl/releases/latest/download/panel.tar.gz | sudo tar -xzv # You may remove sudo from both ends of the command. But it might not work. for me, it didn't.
-sudo chmod -R 755 storage/* bootstrap/cache # Set the permissions
-composer install --no-dev --optimize-autoloader # if it doesn't work, run with sudo.
-php artisan migrate --seed --force # if it doesn't work, run with sudo.
-```
-Then, Run **ONE** of these based on what your using:
-```bash
-# If using NGINX or Apache (not on CentOS):
-chown -R www-data:www-data *
-
-# If using NGINX on CentOS:
-chown -R nginx:nginx *
-
-# If using Apache on CentOS
-chown -R apache:apache *
-```
-
-Finally, Run
-```bash
-php artisan up # if it doesn't work, run with sudo.
-```
-### Method 2
-Install jexactyl as written in the docs:
-```bash
-apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
-
-LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
-add-apt-repository ppa:redislabs/redis -y
-
-# The command below is not needed if you are using Ubuntu 22.04 or higher.
-curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
-
-apt update
-apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server
-curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-```
-The rest is continued in the official docs of jexactyl starting [here](https://docs.jexactyl.com/#/latest/panel/install/database)
-
-Make the directory:
-```bash
-mkdir -p /var/www/jexactyl
-cd /var/www/jexactyl
-```
-
-and here comes the diffrent part, downloading the files:
-```bash
-curl -Lo panel.tar.gz https://github.com/kokofixcomputers/jexactyl/releases/latest/download/panel.tar.gz
-tar -xzvf panel.tar.gz
-chmod -R 755 storage/* bootstrap/cache/
-```
-### Method 3
-Use my installation script:
-```bash
-bash <(curl -s https://raw.githubusercontent.com/kokofixcomputers/jexactyl-fork-installer/refs/heads/master/install.sh)
-```
-This must be run as root. Not with sudo, but as root with sudo su and then running it.
-If you don't want to do that (i don't so i will follow below)
-You may run:
-```bash
-wget https://raw.githubusercontent.com/kokofixcomputers/jexactyl-fork-installer/refs/heads/master/install.sh
-sudo chmod +x install.sh
-sudo ./install.sh
-```
-Then answer the questions.
+Installation is moved to the [official jexactyl-fork docs](https://jexactyl-fork.kokodev.cc/)
 
 ## Things i added/fixed
 - Make descriptions for info and errors more clear
